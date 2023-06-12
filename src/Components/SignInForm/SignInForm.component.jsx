@@ -1,13 +1,11 @@
 // library import methods
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState } from "react";
 // styles
 import "./SignInForm.styles.scss";
 // firebase components
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
-
 } from "../../utils/firebase/firebase.utils";
 // Context Componenet
 // Components
@@ -28,17 +26,14 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-     await signInWithGooglePopup();
+    await signInWithGooglePopup();
     // await ;
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      await signInAuthUserWithEmailAndPassword(email, password);
       setFormField(defaultFormField);
     } catch (error) {
       // console.log("some error ocurred", error);
@@ -78,7 +73,11 @@ const SignInForm = () => {
           />
           <div className="sign-in-button-container">
             <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton type='button' buttonType="google" onClick={signInWithGoogle}>
+            <CustomButton
+              type="button"
+              buttonType="google"
+              onClick={signInWithGoogle}
+            >
               Google Sign In
             </CustomButton>
           </div>
