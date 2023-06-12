@@ -1,0 +1,10 @@
+.sign-in-container {
+  display: flex;
+  width: 380px;
+  flex-direction: column;
+
+  .sign-in-button-container{
+    display: flex;
+    justify-content: space-between;
+  }
+}
