@@ -30,12 +30,14 @@ const reducedCartItem = (cartItems, productToBeRemoved) => {
     return cartItems.filter((cartItem) => cartItem?.id !== productToBeRemoved?.id);
   }
 };
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
   cartItems: [],
   addProductToCart: () => {},
   removeProductFromCart: () => {},
+  clearItemFromCart: () => {},
   cartCount: 0,
 });
 export const CartContextProvider = ({ children }) => {
